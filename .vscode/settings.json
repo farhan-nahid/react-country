@@ -1,0 +1,54 @@
+{
+  // Theme
+  "workbench.colorTheme": "Dracula",
+
+  // config related to code formatting
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false
+  },
+  "javascript.validate.enable": false, //disable all built-in syntax checking
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.tslint": true,
+    "source.organizeImports": true
+  },
+  "eslint.alwaysShowStatus": true,
+  "prettier.disableLanguages": ["javascript", "javascriptreact"],
+  // emmet
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  }
+    //terminal
+    "terminal.integrated.fontFamily": "monospace",
+    "workbench.iconTheme": "vscode-icons",
+    "terminal.integrated.shell.linux": "/bin/zsh",
+    // terminal customization
+    "workbench.colorCustomizations": {
+      "terminal.background": "#23262e",
+      "terminal.foreground": "#ffffff",
+      "terminalCursor.background": "#ffffff",
+      "terminalCursor.foreground": "#ffffff",
+      "terminal.ansiBlack": "#70707077",
+      "terminal.ansiBlue": "#ff0202", // path name
+      "terminal.ansiBrightBlack": "#686A71",
+      "terminal.ansiBrightBlue": "#000000",
+      "terminal.ansiBrightCyan": "#0b1cb1",
+      "terminal.ansiBrightGreen": "#0bb19b",
+      "terminal.ansiBrightMagenta": "#B21889",
+      "terminal.ansiBrightRed": "#b21818",
+      "terminal.ansiBrightWhite": "#BEBFC2",
+      "terminal.ansiBrightYellow": "#cf6f02",
+      "terminal.ansiCyan": "#ffee00",
+      "terminal.ansiGreen": "#08c5f5", // git commit
+      "terminal.ansiMagenta": "#B21889",
+      "terminal.ansiRed": "#b21818",
+      "terminal.ansiWhite": "#ffffff", // git logo
+      "terminal.ansiYellow": "#fa9600" // git add
+    }
+}
