@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SingleCountey = (props) => {
-    console.log(props);
+    //  console.log(props);
     const { country } = props;
     const { name, alpha2Code, flag, capital } = country;
 
