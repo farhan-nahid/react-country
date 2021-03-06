@@ -1,3 +1,4 @@
+import { Button } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -13,8 +14,9 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import ShareIcon from '@material-ui/icons/Share';
-import clsx from 'clsx';
 import React from 'react';
+import { Link } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -40,15 +42,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SingleCountey = (props) => {
+    console.log(props);
+    const { country } = props;
+    const { name, alpha2Code, flag, capital } = country;
+
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
-    console.log(props);
-    const { country } = props;
-    const { name, alpha2Code, flag, capital, population } = country;
+    // const history = useHistory();
+    // const handleClick = (id) => {
+    //     const url = `/countryDetails/${id}`;
+    //     history.push(url);
+    // };
 
     return (
         <Card className={classes.root}>
@@ -67,12 +75,17 @@ const SingleCountey = (props) => {
                 subheader="March 7, 2021"
             />
 
-            <CardMedia className={classes.media} image={flag} title="Paella dish" />
+            <CardMedia className={classes.media} image={flag} title="Flag" />
             <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    <p>Capital: {capital} </p>
-                    <p>Population: {population}</p>
+                    Capital: {capital}
                 </Typography>
+                <Button variant="contained" color="secondary">
+                    More Details
+                </Button>
+                <p>
+                    <Link to={`/countryDetails/${alpha2Code}`}>Show Details{alpha2Code} </Link>
+                </p>
             </CardContent>
             <CardActions disableSpacing>
                 <IconButton aria-label="add to favorites">
@@ -82,9 +95,6 @@ const SingleCountey = (props) => {
                     <ShareIcon />
                 </IconButton>
                 <IconButton
-                    className={clsx(classes.expand, {
-                        [classes.expandOpen]: expanded,
-                    })}
                     onClick={handleExpandClick}
                     aria-expanded={expanded}
                     aria-label="show more"

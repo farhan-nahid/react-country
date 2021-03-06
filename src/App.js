@@ -18,7 +18,7 @@ function App() {
                     <Route path="/country/">
                         <SingleCountey />
                     </Route>
-                    <Route path="/country/:alpha2Code">
+                    <Route path="/countryDetails/:alpha2Code">
                         <CountryDetails />
                     </Route>
                     <Route exact path="/">
