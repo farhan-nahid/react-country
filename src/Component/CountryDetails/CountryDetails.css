@@ -7,3 +7,11 @@ h5 {
   padding: 7px;
   margin: 0;
 }
+
+.image {
+  width: 100%;
+}
+
+.image img {
+  width: 100%;
+}
