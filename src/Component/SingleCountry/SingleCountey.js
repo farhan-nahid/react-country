@@ -15,7 +15,8 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import ShareIcon from '@material-ui/icons/Share';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import './SingleCountry.css';
 // import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
@@ -44,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
 const SingleCountey = (props) => {
     //  console.log(props);
     const { country } = props;
-    const { name, alpha2Code, flag, capital } = country;
+    const { name, alpha2Code, flag, capital, region } = country;
 
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
@@ -52,58 +53,63 @@ const SingleCountey = (props) => {
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
-    // const history = useHistory();
-    // const handleClick = (id) => {
-    //     const url = `/countryDetails/${id}`;
-    //     history.push(url);
-    // };
+    const history = useHistory();
+    const handleClick = () => {
+        const url = `/countryDetails/${alpha2Code}`;
+        history.push(url);
+    };
 
     return (
-        <Card className={classes.root}>
-            <CardHeader
-                avatar={
-                    <Avatar aria-label="recipe" className={classes.avatar}>
-                        {alpha2Code}
-                    </Avatar>
-                }
-                action={
-                    <IconButton aria-label="settings">
-                        <MoreVertIcon />
-                    </IconButton>
-                }
-                title={name}
-                subheader="March 7, 2021"
-            />
+        <div className="shadow">
+            <Card className={classes.root}>
+                <CardHeader
+                    avatar={
+                        <Avatar aria-label="recipe" className={classes.avatar}>
+                            {alpha2Code}
+                        </Avatar>
+                    }
+                    action={
+                        <IconButton aria-label="settings">
+                            <MoreVertIcon />
+                        </IconButton>
+                    }
+                    title={name}
+                    subheader="March 7, 2021"
+                />
 
-            <CardMedia className={classes.media} image={flag} title="Flag" />
-            <CardContent>
-                <Typography variant="body2" color="textSecondary" component="p">
-                    Capital: {capital}
-                </Typography>
-                <Button variant="contained" color="secondary">
-                    More Details
-                </Button>
-                <p>
-                    <Link to={`/countryDetails/${alpha2Code}`}>Show Details{alpha2Code} </Link>
-                </p>
-            </CardContent>
-            <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                    <FavoriteIcon />
-                </IconButton>
-                <IconButton aria-label="share">
-                    <ShareIcon />
-                </IconButton>
-                <IconButton
-                    onClick={handleExpandClick}
-                    aria-expanded={expanded}
-                    aria-label="show more"
-                >
-                    <ExpandMoreIcon />
-                </IconButton>
-            </CardActions>
-            <Collapse in={expanded} timeout="auto" unmountOnExit />
-        </Card>
+                <CardMedia className={classes.media} image={flag} title="Flag" />
+                <CardContent>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                        <h4> Capital: {capital}</h4>
+                        <h4> Region : {region}</h4>
+                    </Typography>
+                    <br />
+                    <Button
+                        onClick={() => handleClick(alpha2Code)}
+                        variant="contained"
+                        color="secondary"
+                    >
+                        More Details
+                    </Button>
+                </CardContent>
+                <CardActions disableSpacing>
+                    <IconButton aria-label="add to favorites">
+                        <FavoriteIcon />
+                    </IconButton>
+                    <IconButton aria-label="share">
+                        <ShareIcon />
+                    </IconButton>
+                    <IconButton
+                        onClick={handleExpandClick}
+                        aria-expanded={expanded}
+                        aria-label="show more"
+                    >
+                        <ExpandMoreIcon />
+                    </IconButton>
+                </CardActions>
+                <Collapse in={expanded} timeout="auto" unmountOnExit />
+            </Card>
+        </div>
     );
 };
 

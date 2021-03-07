@@ -2,7 +2,7 @@ import React from 'react';
 import './Footer.css';
 
 const Footer = () => (
-    <p className="text-center">
+    <p align="center">
         2021-2022 &copy; by{' '}
         <a target="-blank" href="https://www.facebook.com/farhan.nahid.01">
             Farhan Ahmed Nahid

@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import CountryContainer from './Component/CountryContainer/CountryContainer';
 import CountryDetails from './Component/CountryDetails/CountryDetails';
 import Footer from './Component/Footer/Footer';
 import Header from './Component/Header/Header';
 import Home from './Component/Home/Home';
 import NotFound from './Component/NotFound/NotFound';
-import SingleCountey from './Component/SingleCountry/SingleCountey';
 
 function App() {
     return (
@@ -16,7 +16,7 @@ function App() {
                         <Home />
                     </Route>
                     <Route path="/country/">
-                        <SingleCountey />
+                        <CountryContainer />
                     </Route>
                     <Route path="/countryDetails/:alpha2Code">
                         <CountryDetails />

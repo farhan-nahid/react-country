@@ -1,0 +1,7 @@
+.shadow {
+  -moz-box-shadow: inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow: inset 0 0 10px #000000;
+  color: white;
+  box-shadow: 3px 3px 5px 6px #ccc;
+}

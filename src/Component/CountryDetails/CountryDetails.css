@@ -1,0 +1,9 @@
+.details {
+  width: 50%;
+  margin: auto;
+}
+h5 {
+  border-top: 1px solid grey;
+  padding: 7px;
+  margin: 0;
+}
