@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SingleCountey = (props) => {
-    //  console.log(props);
+    console.log(props);
     const { country } = props;
     const { name, alpha2Code, flag, capital, region } = country;
 
@@ -54,8 +54,9 @@ const SingleCountey = (props) => {
         setExpanded(!expanded);
     };
     const history = useHistory();
+
     const handleClick = () => {
-        const url = `/countryDetails/${alpha2Code}`;
+        const url = `/countryDetails/${name}`;
         history.push(url);
     };
 
@@ -84,11 +85,7 @@ const SingleCountey = (props) => {
                         <h4> Region : {region}</h4>
                     </Typography>
                     <br />
-                    <Button
-                        onClick={() => handleClick(alpha2Code)}
-                        variant="contained"
-                        color="secondary"
-                    >
+                    <Button onClick={() => handleClick(name)} variant="contained" color="secondary">
                         More Details
                     </Button>
                 </CardContent>

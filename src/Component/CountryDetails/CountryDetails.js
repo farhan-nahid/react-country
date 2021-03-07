@@ -22,11 +22,11 @@ const CountryDetails = () => {
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
 
-    const { alpha2Code } = useParams();
+    const { name } = useParams();
+    console.log(name);
     const [details, setDetails] = useState({});
     console.log(details);
     const {
-        name,
         alpha3Code,
         area,
         flag,
@@ -37,15 +37,16 @@ const CountryDetails = () => {
         subregion,
     } = details;
     console.log(name);
-    // const { name } = details.country;
+
     useEffect(() => {
-        const url = `https://restcountries.eu/rest/v2/name/${alpha2Code}`;
+        const url = `https://restcountries.eu/rest/v2/name/${name}`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => setDetails(data[0]));
-    }, [alpha2Code]);
+    }, [name]);
 
     const history = useHistory();
+    console.log(history);
     function homeClick() {
         history.push('/home');
     }

@@ -18,7 +18,7 @@ function App() {
                     <Route path="/country/">
                         <CountryContainer />
                     </Route>
-                    <Route path="/countryDetails/:alpha2Code">
+                    <Route path="/countryDetails/:name">
                         <CountryDetails />
                     </Route>
                     <Route exact path="/">
